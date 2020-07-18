@@ -1,9 +1,8 @@
 #!/bin/bash
 #
 ##################################################################################################################
-# Written to be used on 64 bits computers
-# Author 	: 	Erik Dubois
-# Website 	: 	http://www.erikdubois.be
+# Author 	: 	Luke Dahleen
+# Website 	: 	http://www.lukedahleen.com
 ##################################################################################################################
 ##################################################################################################################
 #
@@ -12,17 +11,10 @@
 ##################################################################################################################
 
 
+# Install using snap
+sudo snap install discord
 
-# repo for spotify
-
-sudo add-apt-repository -y ppa:dawidd0811/neofetch
-
-# getting new info of this new repo
-sudo apt-get -y update
-
-# installing
-sudo apt install neofetch -y
 
 echo "################################################################"
-echo "###################   neofetch installed   #####################"
+echo "###################   Steam installed   #####################"
 echo "################################################################"
