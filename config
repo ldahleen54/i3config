@@ -7,7 +7,7 @@
 
 # KEY DEFINITIONS TO REMEMBER
 
-# $Mod = WINDOWS key or Super key or Mod4
+# $super = WINDOWS key or Super key or Mod4
 # Mod1 = ALT key
 # Control = CTRL key
 # Shift = SHIFT key
@@ -24,7 +24,7 @@ bindsym button5 exec ~/.i3/scripts/noscript.sh
 
 
 #####################################################################################################################
-#################                          Define the $mod variable/key                             #################
+#################                          Define keys                                              #################
 #####################################################################################################################
 
 # Key to rule them all : Super(Windows) or Alt key?
@@ -32,36 +32,21 @@ bindsym button5 exec ~/.i3/scripts/noscript.sh
 # Mod4 = Windows or Super key on keyboard
 # Mod1 = Alt key on keyboard
 
-#Set Alt key
-#set $mod Mod1
-
 #set Super key
-set $mod Mod4
+set $super Mod4
 
 focus_on_window_activation urgent
 
-
-#####################################################################################################################
-#################                          Define the movements keys - variables                    #################
-#####################################################################################################################
-
-
-#This is setup for qwerty
-set $up l
+#Movement keys
+set $up i
 set $down k
 set $left j
-set $right semicolon
-
-#This is setup for azerty
-#set $up l
-#set $down k
-#set $left j
-#set $right m
+set $right l
 
 
 
 #####################################################################################################################
-#################                          Single and Dual screen                                   #################
+#################                          Monitors                                                 #################
 #####################################################################################################################
 
 
@@ -86,28 +71,28 @@ workspace 9 output $secondMonitor
 workspace 10 output $secondMonitor
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
+bindsym $super+4 workspace 4
+bindsym $super+5 workspace 5
+bindsym $super+6 workspace 6
+bindsym $super+7 workspace 7
+bindsym $super+8 workspace 8
+bindsym $super+9 workspace 9
+bindsym $super+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1; workspace 1
-bindsym $mod+Shift+2 move container to workspace 2; workspace 2
-bindsym $mod+Shift+3 move container to workspace 3; workspace 3
-bindsym $mod+Shift+4 move container to workspace 4; workspace 4
-bindsym $mod+Shift+5 move container to workspace 5; workspace 5
-bindsym $mod+Shift+6 move container to workspace 6; workspace 6
-bindsym $mod+Shift+7 move container to workspace 7; workspace 7
-bindsym $mod+Shift+8 move container to workspace 8; workspace 8
-bindsym $mod+Shift+9 move container to workspace 9; workspace 9
-bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+bindsym $super+Shift+1 move container to workspace 1; workspace 1
+bindsym $super+Shift+2 move container to workspace 2; workspace 2
+bindsym $super+Shift+3 move container to workspace 3; workspace 3
+bindsym $super+Shift+4 move container to workspace 4; workspace 4
+bindsym $super+Shift+5 move container to workspace 5; workspace 5
+bindsym $super+Shift+6 move container to workspace 6; workspace 6
+bindsym $super+Shift+7 move container to workspace 7; workspace 7
+bindsym $super+Shift+8 move container to workspace 8; workspace 8
+bindsym $super+Shift+9 move container to workspace 9; workspace 9
+bindsym $super+Shift+0 move container to workspace 10; workspace 10
 
 
 
@@ -116,16 +101,18 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 #####################################################################################################################
 
 # start dmenu
-bindsym $mod+F12 exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+bindsym $super+F12 exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
 # start xfce-appfinder
 # bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
 
 # start rofi full
-bindsym $mod+F11 exec --no-startup-id rofi -show run -fullscreen -font "Noto Sans 13"
+bindsym $super+F11 exec --no-startup-id rofi -show run -fullscreen -font "Noto Sans 13"
 
 # start rofi small
-bindsym mod1+F1 exec --no-startup-id rofi -show run -font "Noto Sans 13"
+#rofi will sometimes softlock the computer
+#bindsym mod1+F1 exec --no-startup-id rofi -theme Arc -show run -font "Ubuntu 13"
+bindsym mod1+F1 exec --no-startup-id dmenu 
 
 # gmrun
 bindsym mod1+F2 exec --no-startup-id gmrun
@@ -137,14 +124,14 @@ bindsym mod1+F2 exec --no-startup-id gmrun
 
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $super+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
-#Press $mod (super) and X to exit - check toolbar for next choices
-bindsym $mod+X mode "$mode_system"
+#Press $super (super) and X to exit - check toolbar for next choices
+bindsym $super+X mode "$supere_system"
 
-set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
-mode "$mode_system" {
+set $supere_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+mode "$supere_system" {
     bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
     bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
     bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
@@ -165,10 +152,10 @@ mode "$mode_system" {
 
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $super+Shift+r restart
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $super+Shift+c reload
 
 
 
@@ -181,42 +168,40 @@ bindsym $mod+Shift+c reload
 bindsym mod1+F4 kill
 
 
-
-
 #####################################################################################################################
 #################                          Moving around in i3                                      #################
 #####################################################################################################################
 
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $super+Shift+space floating toggle
 
 # change focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+bindsym $super+$left focus left
+bindsym $super+$down focus down
+bindsym $super+$up focus up
+bindsym $super+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
 
 # move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+bindsym $super+Shift+$left move left
+bindsym $super+Shift+$down move down
+bindsym $super+Shift+$up move up
+bindsym $super+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
 
 
 
@@ -230,7 +215,7 @@ bindsym $mod+Shift+Right move right
 
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
-bindsym $mod+Tab workspace back_and_forth
+bindsym $super+Tab workspace back_and_forth
 
 #navigate workspaces next / previous
 bindsym Mod1+Ctrl+Right workspace next
@@ -251,34 +236,34 @@ bindsym Mod1+Ctrl+Left workspace prev
 default_orientation horizontal
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $super+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $super+v split v
 
 # enter fullscreen mode for the focused container
 # Super + F in archlabs is execute thunar
-bindsym $mod+f fullscreen toggle
+bindsym $super+f fullscreen toggle
 
-bindsym $mod+shift+f fullscreen toggle global
+bindsym $super+shift+f fullscreen toggle global
 # change container layout (stacked, tabbed, toggle split)
 # qwerty/azerty issue for letter z
-bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $super+s layout stacking
+bindsym $super+z layout tabbed
+bindsym $super+e layout toggle split
 
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $super+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $super+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+#bindsym $super+d focus child
 
 # make window sticky
-bindsym $mod+Shift+s sticky toggle
+# bindsym $super+Shift+s sticky toggle
 
 #for_window [class="electron"] floating enable
 #for_window [class="electron"] sticky enable
@@ -293,7 +278,7 @@ bindsym $mod+Shift+s sticky toggle
 
 # resize window (you can also use the mouse for that)
 
-bindsym $mod+r mode "resize"
+bindsym $super+r mode "resize"
 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -305,7 +290,7 @@ mode "resize" {
         bindsym $left       resize shrink width 39 px or 39 ppt
         bindsym $down       resize grow height 39 px or 39 ppt
         bindsym $up         resize shrink height 39 px or 39 ppt
-        bindsym $right      resize grow width 39 px or 39 ppt
+        bindsym $right      resize grow width 39 px or 39 pptr
 
         # same bindings, but for the arrow keys
         bindsym Left        resize shrink width 39 px or 39 ppt
@@ -332,9 +317,6 @@ mode "resize" {
 font pango:Noto Mono Regular 13
 
 
-
-
-
 #####################################################################################################################
 #################                          assign applications to workspaces                       #################
 #####################################################################################################################
@@ -350,7 +332,7 @@ assign [class="Chromium-browser|Google-chrome"]                                 
 # Workspace 2 text editor related
 assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 2
 assign [class="Brackets|Atom|Code"]                                                 → 2
-assign [class="jetbrains-idea-ce"]                                                  → 2
+assign [class="jetbrains-idea-ce|sun-awt-X11-XDialogPeer"]                                                  → 2
 
 # Workspace 3 File manager
 assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 3
@@ -367,7 +349,8 @@ assign [class="Meld"]                                                           
 assign [class="sun-awt-X11-XFramePeer|net-runelite-client-RuneLite"]                                                               → 5
 
 # Workspace 6 all video related software
-assign [class="Vlc|vlc"]                                                            → 6
+# I don't use vlc very often so I have this commented out because I can never remember the workspace
+# assign [class="Vlc|vlc"]                                                            → 6
 
 # Workspace 7 empty
 assign [class="discord"]						                        → 7
@@ -383,8 +366,7 @@ assign [class="Spotify|spotify"]                                                
 
 #fix for spotify not moving to workspace 10
 for_window [class="Spotify"] move to workspace 10
-for_window [title="cava"] move to workspace 10
-# for_window [class="Terminator"] move to workspace 10
+# for_window [title="cava"] move to workspace 10
 
 
 #####################################################################################################################
@@ -395,7 +377,7 @@ for_window [title="cava"] move to workspace 10
 
 #browser
 exec --no-startup-id google-chrome
-exec --no-startup-id Thunderbird
+
 #for_window [class="Vivaldi-snapshot"] focus
 for_window [class="google-chrome"] move to workspace 6
 
@@ -410,12 +392,12 @@ exec --no-startup-id nemo
 
 
 #Mail clients
-#exec --no-startup-id evolution
+exec --no-startup-id Thunderbird
 
 #Music
 exec spotify
 for_window [class="Spotify"] focus
-exec terminator -p cava
+# exec terminator -p cava
 
 
 #toggle mouse focus for rts/moba
@@ -449,13 +431,15 @@ exec --no-startup-id insync start
 
 # volume
 #exec --no-startup-id pasystray
-exec --no-startup-id volumeicon
+# exec --no-startup-id volumeicon
+# exec --no-startup-id kmix
+exec indicator-sound-switcher
 
 #variety
 exec --no-startup-id variety
 
 #gdrive backup script
-exec --no-startup-id ~/Bash/driveBackup.sh
+# exec --no-startup-id ~/Bash/GoogleDriveBackup.sh
 
 
 # clipit
@@ -492,7 +476,7 @@ exec --no-startup-id lutris
 #not workspace related
 
 # terminal
-bindsym $mod+Return exec --no-startup-id terminator -p Opaque;focus
+bindsym $super+Return exec --no-startup-id terminator -p Opaque;focus
 bindsym control+mod1+t exec --no-startup-id terminator; focus
 
 #System monitor
@@ -502,6 +486,8 @@ bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
 #bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
 bindsym control+mod1+m exec --no-startup-id cinnamon-settings
 
+
+bindsym control+mod1+s exec dmenu_websearch
 #slimlock
 #archlabs conflict
 bindsym control+mod1+k exec --no-startup-id lock -g -- scrot -z
@@ -509,16 +495,16 @@ bindsym control+mod1+k exec --no-startup-id lock -g -- scrot -z
 
 #rofi theme selector
 #archlabs conflict
-#bindsym $mod+r exec rofi-theme-selector
+#bindsym $super+r exec rofi-theme-selector
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
 #deadbeef
 #archlabs conflict
-#bindsym $mod+m exec --no-startup-id deadbeef;workspace 10; focus
+#bindsym $super+m exec --no-startup-id deadbeef;workspace 10; focus
 
 #htop
 #archlabs conflict
-#bindsym $mod+h exec --no-startup-id htop;workspace 7; focus
+#bindsym $super+h exec --no-startup-id htop;workspace 7; focus
 
 #pavucontrol
 #archlabs conflict
@@ -535,50 +521,50 @@ bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 #####################################################################################################################
 
 #workspace 1 related
-bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;workspace 1;focus
+bindsym $super+F1 exec --no-startup-id exo-open --launch webbrowser;workspace 1;focus
 #qwerty/azerty conflict with w
-bindsym $mod+c exec --no-startup-id exo-open --launch webbrowser;workspace 1;focus
+bindsym $super+c exec --no-startup-id exo-open --launch webbrowser;workspace 1;focus
 bindsym control+mod1+f exec --no-startup-id firefox;workspace 1; focus
 bindsym control+mod1+v exec --no-startup-id vivaldi-snapshot;workspace 1; focus
 bindsym control+mod1+g exec --no-startup-id chromium-browser;workspace 1;focus
 
 #workspace 2 related
-#bindsym $mod+F2 exec --no-startup-id geany;workspace 2;focus
-bindsym $mod+F2 exec --no-startup-id atom;workspace 2;focus
+#bindsym $super+F2 exec --no-startup-id geany;workspace 2;focus
+bindsym $super+F2 exec --no-startup-id atom;workspace 2;focus
 #bindsym control+mod1+w exec --no-startup-id geany;workspace 2;focus
 bindsym control+mod1+w exec --no-startup-id atom;workspace 2;focus
 
 #workspace 3 related
-bindsym $mod+F3 exec --no-startup-id inkscape;workspace 3;focus
+bindsym $super+F3 exec --no-startup-id inkscape;workspace 3;focus
 
 #workspace 4 related
-bindsym $mod+F4 exec --no-startup-id gimp;workspace 4;focus
+bindsym $super+F4 exec --no-startup-id gimp;workspace 4;focus
 
 #workspace 5 related
-bindsym $mod+F5 exec --no-startup-id meld;workspace 5;focus
+bindsym $super+F5 exec --no-startup-id meld;workspace 5;focus
 bindsym control+mod1+i exec --no-startup-id nitrogen;workspace 5;focus
 
 #workspace 6 related
-bindsym $mod+F6 exec --no-startup-id vlc;workspace 6;focus
+bindsym $super+F6 exec --no-startup-id vlc;workspace 6;focus
 
 #workspace 7 related
-bindsym $mod+F7 exec --no-startup-id virtualbox;workspace 7;focus
+bindsym $super+F7 exec --no-startup-id virtualbox;workspace 7;focus
 
 #workspace 8 related
 for_window [class="Nemo"] focus
-bindsym $mod+F8 exec --no-startup-id nemo;workspace 8;focus
-bindsym $mod+Shift+Return exec --no-startup-id nemo; workspace 8;focus
+bindsym $super+F8 exec --no-startup-id nemo;workspace 8;focus
+bindsym $super+Shift+Return exec --no-startup-id nemo; workspace 8;focus
 bindsym control+mod1+b exec --no-startup-id nemo;workspace 8;focus
 
 #workspace 9 related
-bindsym $mod+F9 exec --no-startup-id evolution;workspace 9;focus
+bindsym $super+F9 exec --no-startup-id evolution;workspace 9;focus
 bindsym control+mod1+e exec --no-startup-id evolution;workspace 9;focus
-#bindsym $mod+F9 exec --no-startup-id geary;workspace 9;focus
+#bindsym $super+F9 exec --no-startup-id geary;workspace 9;focus
 #bindsym control+mod1+e exec --no-startup-id geary;workspace 9;focus
 
 #workspace 10 related
-bindsym $mod+F10 exec --no-startup-id spotify;workspace 10;focus
-bindsym control+mod1+s exec --no-startup-id spotify;workspace 10;focus
+bindsym $super+F10 exec --no-startup-id spotify;workspace 10;focus
+# bindsym control+mod1+s exec --no-startup-id spotify;workspace 10;focus
 
 
 
@@ -607,7 +593,7 @@ bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
 for_window [class="Bleachbit"] floating disable
 for_window [class="Blueberry.py"] floating enable
 for_window [class="Brasero"] floating disable
-for_window [class="Galculator"] floating enable
+for_window [class="Qalculate"] floating enable
 for_window [class="Gnome-disks"] floating disable
 for_window [class="^Gnome-font-viewer$"] floating enable
 for_window [class="^Gpick$"] floating enable
@@ -720,7 +706,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease
 
 
 # bar toggle, hide or show
-bindsym $mod+b bar mode toggle
+bindsym $super+b bar mode toggle
 
 
 #####################################################################################################################
@@ -730,13 +716,13 @@ bindsym $mod+b bar mode toggle
 
 # Border control
 hide_edge_borders both
-bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
+bindsym $super+shift+b exec --no-startup-id i3-msg border toggle
 
 #changing border style
 #super+t in archlabs is starting terminal
-bindsym $mod+t border normal
-bindsym $mod+y border 1pixel
-bindsym $mod+u border none
+bindsym $super+t border normal
+bindsym $super+y border 1pixel
+bindsym $super+u border none
 
 default_border pixel 10
 
@@ -772,9 +758,9 @@ popup_during_fullscreen smart
 
 
 for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
-#smart_gaps on
+gaps inner 10
+gaps outer 10
+smart_gaps on
 #smart_borders on
 
 
@@ -787,19 +773,19 @@ gaps outer 5
 
 
 
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+set $supere_gaps Gaps: (o) outer, (i) inner
+set $supere_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $supere_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $super+Shift+g mode "$supere_gaps"
 
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
+mode "$supere_gaps" {
+        bindsym o      mode "$supere_gaps_outer"
+        bindsym i      mode "$supere_gaps_inner"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-mode "$mode_gaps_inner" {
+mode "$supere_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
         bindsym 0     gaps inner current set 0
@@ -811,7 +797,7 @@ mode "$mode_gaps_inner" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-mode "$mode_gaps_outer" {
+mode "$supere_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
         bindsym 0     gaps outer current set 0
@@ -1015,27 +1001,15 @@ client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 bindsym --release button2 kill
 
 # The middle button and a modifer over any part of the window kills the window
-bindsym --whole-window $mod+button2 kill
+bindsym --whole-window $super+button2 kill
 
 # The right button toggles floating
 # bindsym button3 floating toggle
-bindsym $mod+button3 floating toggle
+bindsym $super+button3 floating toggle
 
 # The side buttons move the window around
 bindsym button9 move left
 bindsym button8 move right
-
-
-
-#####################################################################################################################
-#################                          keyboard control                                         #################
-#####################################################################################################################
-
-# NOT USED
-
-# Settings of ArchLabs will be applied
-#exec --no-startup-id setxkbmap be
-#exec --no-startup-id setxkbmap us
 
 
 
@@ -1047,4 +1021,4 @@ bindsym button8 move right
 
 # get the mouse out of the way with unclutter
 #exec --no-startup-id unclutter
-exec --no-startup-id compton --config ~/.config/compton.conf -b
+# exec --no-startup-id compton --config ~/.config/compton.conf -b
