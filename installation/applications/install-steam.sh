@@ -20,6 +20,9 @@ sudo apt-get -y update
 # installing
 sudo apt install steam -y
 
+# Run steam in background to update the application
+steam > /dev/null 2>&1 &
+
 echo "################################################################"
 echo "###################   Steam installed   #####################"
 echo "################################################################"
