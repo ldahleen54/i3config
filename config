@@ -60,15 +60,15 @@ set $secondMonitor DisplayPort-2
 # use this line to tell which monitor is on the right
 exec --no-startup-id xrandr --output $secondMonitor --right-of $firstMonitor --auto
 
-workspace 1 output $secondMonitor
-workspace 2 output $firstMonitor
-workspace 3 output $secondMonitor
-workspace 4 output $firstMonitor
-workspace 5 output $secondMonitor
+workspace 1 output $firstMonitor
+workspace 2 output $secondMonitor
+workspace 3 output $firstMonitor
+workspace 4 output $secondMonitor
+workspace 5 output $firstMonitor
 workspace 6 output $secondMonitor
 workspace 7 output $firstMonitor
 workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
+workspace 9 output $firstMonitor
 workspace 10 output $secondMonitor
 
 # switch to workspace
@@ -315,11 +315,6 @@ font pango:Noto Mono Regular 13
 # Assign application to start on a specific workspace
 # you can find the class with the program xprop
 
-# Workspace 1 browser related
-assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"]                      → 1
-assign [class="Chromium-browser|Google-chrome"]                                     → 1
-# assign [class="Chromium-browser|Google-chrome"]                                     → 6
-
 # Workspace 2 text editor related
 assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 2
 assign [class="Brackets|Atom|Code"]                                                 → 2
@@ -347,7 +342,7 @@ assign [class="sun-awt-X11-XFramePeer|net-runelite-client-RuneLite"]            
 assign [class="discord"]						                        → 7
 
 # Workspace 8 Games
-assign [class="Steam"]                                                           → 8
+assign [class="Steam|steam|steamwebhelper"]                                                           → 8
 
 # Workspace 9 email clients
 assign [class="Geary|Evolution|Thunderbird"]                                                    → 9
@@ -365,12 +360,6 @@ assign [class="Spotify|spotify"]                                                
 #####################################################################################################################
 
 # USER APPLICATIONS TO START AT BOOT
-
-#browser
-exec --no-startup-id firefox
-
-#for_window [class="Vivaldi-snapshot"] focus
-for_window [class="firefox"] move to workspace 1
 
 #text-editor
 #exec --no-startup-id geany
@@ -472,6 +461,11 @@ bindsym control+mod1+t exec --no-startup-id terminator; focus
 
 #System monitor
 bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
+
+# Open firefox on the left monitor
+bindsym $super+F1 workspace 1; exec firefox
+bindsym $super+F2 workspace 2; exec firefox
+# bindsym $super+Shift+6 move container to workspace 6; workspace 6
 
 #settings
 #bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
