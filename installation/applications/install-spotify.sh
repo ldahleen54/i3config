@@ -25,7 +25,7 @@
 # 4. Install Spotify
 #sudo apt-get install spotify-client -y
 
-sudo snap install spotify
+sudo pacman -Sy spotify --noconfirm
 
 
 echo "################################################################"

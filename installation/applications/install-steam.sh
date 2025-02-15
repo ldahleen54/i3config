@@ -10,15 +10,8 @@
 #
 ##################################################################################################################
 
-
-# Verify that multiverse repository is enabled due to licensing
-sudo add-apt-repository multiverse
-
-# Update repository
-sudo apt-get -y update
-
 # installing
-sudo apt install steam -y
+sudo pacman -Sy steam --noconfirm
 
 # Run steam in background to update the application
 steam > /dev/null 2>&1 &
