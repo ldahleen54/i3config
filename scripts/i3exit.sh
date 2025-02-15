@@ -2,8 +2,9 @@
 
 lock() {
     #i3lock -c 222222
-    exec lock -g -- scrot -z
+    # exec lock -g -- scrot -z
     # i3lock -i ~/Pictures/variety-copied-wallpaper-7c7c8b69c3f62e9eef23e270876104a5.png -t
+    i3lock
 }
 
 case "$1" in
