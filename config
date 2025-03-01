@@ -204,9 +204,8 @@ bindsym $super+Shift+Right move right
 
 # next/previous workspace
 
-bindsym Mod1+Tab workspace next
+bindsym Mod1+Tab workspace back_and_forth
 bindsym Mod1+Shift+Tab workspace prev
-bindsym $super+Tab workspace back_and_forth
 
 #navigate workspaces next / previous
 bindsym Mod1+Ctrl+Right workspace next
@@ -241,7 +240,7 @@ bindsym $super+shift+f fullscreen toggle global
 # qwerty/azerty issue for letter z
 # bindsym $super+s layout stacking
 bindsym $super+z layout tabbed
-bindsym $super+e layout toggle split
+# bindsym $super+e layout toggle split
 
 
 # change focus between tiling / floating windows
@@ -321,7 +320,7 @@ assign [class="Brackets|Atom|Code"]                                             
 assign [class="jetbrains-idea-ce|sun-awt-X11-XDialogPeer"]                                                  → 2
 
 # Workspace 3 File manager
-assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 3
+assign [class="Nemo|Thunar|Caja|nautilus|Nautilus|dolphin"]                                 → 3
 
 # Workspace 4 Gimp
 assign [class="Gimp"]                                                               → 4
@@ -463,8 +462,8 @@ bindsym control+mod1+t exec --no-startup-id terminator; focus
 bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
 
 # Open firefox on the left monitor
-bindsym $super+F1 workspace 1; exec firefox
-bindsym $super+F2 workspace 2; exec firefox
+bindsym $super+F1 workspace 1; exec thorium-browser
+bindsym $super+F2 workspace 2; exec thorium-browser
 # bindsym $super+Shift+6 move container to workspace 6; workspace 6
 
 #settings
@@ -608,6 +607,7 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioStop exec --no-startup-id playerctl stop
+
 #bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 #bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 #bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
