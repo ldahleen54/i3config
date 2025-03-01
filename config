@@ -70,6 +70,8 @@ workspace 7 output $firstMonitor
 workspace 8 output $secondMonitor
 workspace 9 output $firstMonitor
 workspace 10 output $secondMonitor
+workspace 11 output $firstMonitor
+workspace 12 output $secondMonitor
 
 # switch to workspace
 bindsym $super+1 workspace 1
@@ -82,6 +84,8 @@ bindsym $super+7 workspace 7
 bindsym $super+8 workspace 8
 bindsym $super+9 workspace 9
 bindsym $super+0 workspace 10
+bindsym $super+minus workspace 11
+bindsym $super+plus workspace 12
 
 # move focused container to workspace
 bindsym $super+Shift+1 move container to workspace 1; workspace 1
