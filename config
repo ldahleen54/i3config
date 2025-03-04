@@ -55,7 +55,7 @@ exec xinput set-prop "18" "libinput Accel Profile Enabled" 0 1 0
 
 # setting variables for later use
 set $firstMonitor DisplayPort-0
-set $secondMonitor DisplayPort-2
+set $secondMonitor DisplayPort-1
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 exec --no-startup-id xrandr --output $secondMonitor --right-of $firstMonitor --auto
@@ -98,6 +98,8 @@ bindsym $super+Shift+7 move container to workspace 7; workspace 7
 bindsym $super+Shift+8 move container to workspace 8; workspace 8
 bindsym $super+Shift+9 move container to workspace 9; workspace 9
 bindsym $super+Shift+0 move container to workspace 10; workspace 10
+bindsym $super+Shift+minus move container to workspace 11; workspace 11
+bindsym $super+Shift+plus move container to workspace 12; workspace 12
 
 
 
