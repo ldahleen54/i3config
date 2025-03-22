@@ -323,14 +323,14 @@ font pango:Noto Mono Regular 13
 # Workspace 2 text editor related
 assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 2
 assign [class="Brackets|Atom|Code"]                                                 → 2
-assign [class="jetbrains-idea-ce|sun-awt-X11-XDialogPeer"]                                                  → 2
+assign [class="jetbrains-idea-ce|sun-awt-X11-XDialogPeer"]                                                  → 6
 
 # Workspace 3 File manager
 assign [class="Nemo|Thunar|Caja|nautilus|Nautilus|dolphin"]                                 → 3
 
 # Workspace 4 Gimp
 assign [class="Gimp"]                                                               → 4
-assign [class="lutris|Lutris"]                                                             → 4
+assign [class="lutris|Lutris"]                                                             → 8
 
 # Workspace 5 Images and meld
 assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
